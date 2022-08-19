@@ -1,0 +1,11 @@
+
+GET https://v1.nocodeapi.com/paulbuys/google_sheets/GDCJoxHhoScvoITI?tabId=Sheet1
+Content-Type: application/json
+
+{
+    "[item]"
+}
+
+
+
+
