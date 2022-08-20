@@ -9,6 +9,7 @@ import { Counter } from './features/counter/Counter'
 const App = () => {
 
   //SCOPE
+  //I decided to add TypeScript
 
   return (
     <Container>
@@ -19,12 +20,9 @@ const App = () => {
     </Container>
   );
 }
-
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: blueviolet;
 `
-
-
 export default App;
