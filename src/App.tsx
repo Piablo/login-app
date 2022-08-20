@@ -9,12 +9,12 @@ import { Counter } from './features/counter/Counter'
 const App = () => {
 
   //SCOPE
-  //I decided to add TypeScript
+  //Lets work on getting the form complete
 
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<Counter/>}></Route>
+        <Route path="/" element={<Home/>}></Route>
         <Route path="/welcome" element={<Welcome/>}></Route>
       </Routes>
     </Container>

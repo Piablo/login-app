@@ -47,12 +47,16 @@ const Welcome: React.FC = () => {
         }  
     }
 
+    const onGoBack = () => {
+        setShowForm(false)
+    }
+
 
     return(
         <Container>
             {
                 showForm?
-                <DynamicForm formData={currentFormDataRef.current}></DynamicForm>
+                <DynamicForm formData={currentFormDataRef.current} onGoBack={onGoBack}></DynamicForm>
                 :
                 <BottomButtons>
                     <Button onClick={() => onShowForm('REGISTER')}>Register</Button>

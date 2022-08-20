@@ -3,14 +3,17 @@ import styled from 'styled-components'
 //Components
 import Input from './Input'
 import Button from './Button'
+import RoundButton from './RoundButton'
 
 interface Props {
     formData: object
+    onGoBack: () => void
 }
 
 const DynamicForm: React.FC<Props> = (props) => {
     const {
-        formData
+        formData,
+        onGoBack
     } = props
 
     const [showForm, setShowForm] = useState<boolean>(false)
@@ -53,7 +56,9 @@ const DynamicForm: React.FC<Props> = (props) => {
                 return null
         }
     }
-
+    const onGoBackClick = () => {
+        onGoBack()
+    }
 
     return(
         <Container>
@@ -61,7 +66,12 @@ const DynamicForm: React.FC<Props> = (props) => {
                 {
                     showForm?
                     <FloatingPadding>
-                        <Header>{textRef.current}</Header>
+                        <HeaderContainer>
+                            <Header>{textRef.current}</Header>
+                            <BackButtonPositioner>
+                                <RoundButton onClick={() => onGoBackClick()}></RoundButton>
+                            </BackButtonPositioner>
+                        </HeaderContainer>
                         {
                             controlsRef.current.map((control, index) => {
                                 const type = (control && control.type) || null
@@ -108,16 +118,22 @@ const FormContainer = styled.div`
     align-items: center;
     justify-content: center;
 `
-
 const FloatingPadding = styled.div`
     width: calc(100% - 50px);
     height: calc(100% - 50px);
     background-color: pink;
     position: relative;
 `
+const HeaderContainer = styled.div`
+    width: 100%;
+    height: 50px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 const Header = styled.h1`
     margin: 0;
-    width: 100%;
     background-color: green;
 `
 const SubmitButtonContainer = styled.div`
@@ -128,5 +144,9 @@ const SubmitButtonContainer = styled.div`
     bottom: 0;
     left: 0;
 `
-
+const BackButtonPositioner = styled.div`
+    position: absolute;
+    left: 0;
+    top:0;
+`
 export default DynamicForm
